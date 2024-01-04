@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: pink;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make screen full */
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto; /* Enable scrolling for many lines */
+}
+
+#canvas p {
+  color: red;
+  margin: 0;
+  padding: 10px;
+  font-size: 1.5rem; /* Adjust font size for mobile */
+}
+</style>
+<title>I Love You Siya</title>
+</head>
+<body>
+<div id="canvas"></div>
+
+<script>
+window.onload = function() {
+  const canvas = document.getElementById("canvas");
+  const message = "I love you Siya";
+
+  for (let i = 0; i < 10000; i++) {
+    const p = document.createElement("p");
+    p.textContent = message;
+    canvas.appendChild(p);
+
+    // Delay between lines with animation
+    setTimeout(() => {
+      canvas.scrollTop = canvas.scrollHeight; /* Scroll to bottom for visual effect */
+    }, 0.02 * i); // Change "10" to 0.02 for 0.02 sec delay
+
+    // Additional delay for longer pause between messages
+    if (i > 0) {
+      setTimeout(() => {
+        // Add your animation/effect here (optional)
+      }, 500000000); // Change "50" to adjust pause duration in milliseconds
+    }
+  }
+};
+</script>
+</body>
+</html>
